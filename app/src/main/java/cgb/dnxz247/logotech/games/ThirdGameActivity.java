@@ -184,6 +184,8 @@ public class ThirdGameActivity extends AppCompatActivity {
 
     @SuppressLint("UseCompatLoadingForDrawables")
     private void gameInit() {
+        isClickedCorrect = false;
+
         sp = new SoundPool.Builder().build();
         int correct_sound = sp.load(getApplicationContext(), R.raw.correct, 1);
         int fail_sound = sp.load(getApplicationContext(), R.raw.fail, 1);
