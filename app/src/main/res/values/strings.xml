@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">ловУШКИ</string>
+    <string name="question_1">Нажми на картинку, когда услышишь соответствующий\nзвук нотки</string>
+    <string name="question_2">Нажми на картинку в названии которой\nесть звук нотки</string>
+    <string name="question_3">Определи какая из ноток подходит картинке</string>
+</resources>

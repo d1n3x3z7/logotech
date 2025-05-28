@@ -1,0 +1,12 @@
+<resources>
+    <style name="Base.Theme.Logotech" parent="Theme.AppCompat.Light.NoActionBar">
+    </style>
+
+    <style name="Theme.Logotech" parent="Base.Theme.Logotech">
+        <item name="android:textViewStyle">@style/TextFont</item>
+    </style>
+
+    <style name="TextFont">
+        <item name="fontFamily">sans-serif</item>
+    </style>
+</resources>

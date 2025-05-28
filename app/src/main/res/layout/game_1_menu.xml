@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/bg"
+    android:id="@+id/menu_1">
+
+    <ImageView
+        android:layout_width="50sp"
+        android:layout_height="50sp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginTop="15sp"
+        android:layout_marginStart="15sp"
+        android:id="@+id/toMenu"
+        android:src="@drawable/back_button"
+        tools:ignore="ContentDescription"/>
+
+    <ImageView
+        android:id="@+id/toGameRandom"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/toGame_S"
+        android:src="@drawable/random"
+        tools:ignore="ContentDescription" />
+
+    <ImageView
+        android:id="@+id/toGame_S"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toEndOf="@id/toGameRandom"
+        app:layout_constraintEnd_toStartOf="@id/toGame_SH"
+        android:src="@drawable/s"
+        tools:ignore="ContentDescription" />
+
+    <ImageView
+        android:id="@+id/toGame_SH"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toEndOf="@id/toGame_S"
+        app:layout_constraintEnd_toStartOf="@id/toGame_L"
+        android:src="@drawable/sh"
+        tools:ignore="ContentDescription" />
+
+    <ImageView
+        android:id="@+id/toGame_L"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toEndOf="@id/toGame_SH"
+        app:layout_constraintEnd_toStartOf="@id/toGame_R"
+        android:src="@drawable/l"
+        tools:ignore="ContentDescription" />
+
+    <ImageView
+        android:id="@+id/toGame_R"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toEndOf="@id/toGame_L"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:src="@drawable/r"
+        android:adjustViewBounds="false"
+        tools:ignore="ContentDescription" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
