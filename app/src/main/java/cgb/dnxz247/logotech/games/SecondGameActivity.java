@@ -1,7 +1,6 @@
 package cgb.dnxz247.logotech.games;
 
 import android.annotation.SuppressLint;
-import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.media.SoundPool;
 import android.os.Bundle;
@@ -16,17 +15,20 @@ import androidx.appcompat.app.AppCompatActivity;
 import java.util.HashMap;
 import java.util.Random;
 
-import cgb.dnxz247.logotech.MainActivity;
 import cgb.dnxz247.logotech.R;
+import cgb.dnxz247.logotech.Utils;
 
-public class SecondGameActivity extends AppCompatActivity {
+public class SecondGameActivity extends AppCompatActivity implements GameActivity {
     int[] imageViews = {R.id.image_1, R.id.image_2, R.id.image_3, R.id.image_4};
 
     HashMap<String, Integer> images = new HashMap<>(); // all available images
     HashMap<String, Integer> sounds = new HashMap<>(); // all available sounds
 
+    private String mode;
+
     Random randomizer;
-    String mode;
+
+    Bundle sis;
 
     SoundPool sp;
 
@@ -35,6 +37,8 @@ public class SecondGameActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.game_2);
+
+        sis = savedInstanceState;
 
         randomizer = new Random();
 
@@ -48,10 +52,7 @@ public class SecondGameActivity extends AppCompatActivity {
         exit.setOnClickListener(v -> {
             sp.autoPause();
             sp.release();
-            Intent i = new Intent(SecondGameActivity.this, MainActivity.class);
-            i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NO_ANIMATION);
-            startActivity(i, savedInstanceState);
-            overridePendingTransition(0,0);
+            Utils.backToMain(this, SecondGameActivity.this);
         });
     }
 
@@ -71,7 +72,12 @@ public class SecondGameActivity extends AppCompatActivity {
         } catch (NullPointerException ignored) {}
     }
 
-    private void resInit() {
+    @Override
+    public Bundle getSIS() {
+        return sis;
+    }
+
+    public void resInit() {
 
         switch (mode) {
             case "random":
@@ -184,7 +190,7 @@ public class SecondGameActivity extends AppCompatActivity {
         images.put("s_wheel", R.drawable.s_wheel);
     }
     @SuppressLint("UseCompatLoadingForDrawables")
-    private void gameInit() {
+    public void gameInit() {
         sp = new SoundPool.Builder().build();
         int correct_sound = sp.load(getApplicationContext(), R.raw.correct, 1);
         int fail_sound = sp.load(getApplicationContext(), R.raw.fail, 1);
